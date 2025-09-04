@@ -56,7 +56,7 @@ try {
         $email = trim($_POST['email']);
         // Generate control number in format OSR6-2025-XXX (XXX is a zero-padded incrementing number)
         $year = "2025";
-        $stmt_cn = $conn->prepare("SELECT COUNT(*) AS total FROM participant_registration WHERE YEAR(`timestamp`) = ?");
+        $stmt_cn = $conn->prepare("SELECT COUNT(*) AS total FROM `participant_registration` WHERE YEAR(`timestamp`) = ?");
         $stmt_cn->bind_param("s", $year);
         $stmt_cn->execute();
         $result_cn = $stmt_cn->get_result();
@@ -74,7 +74,7 @@ try {
         }
 
         // Check if email already exists
-        $check_email = $conn->prepare("SELECT email FROM participant_registration WHERE email = ?");
+        $check_email = $conn->prepare("SELECT `email` FROM `participant_registration` WHERE `email` = ?");
         $check_email->bind_param("s", $email);
         $check_email->execute();
         $email_result = $check_email->get_result();
@@ -87,8 +87,8 @@ try {
         }
 
         // Prepare SQL statement
-        $sql = "INSERT INTO participant_registration 
-                (data_privacy_consent, title, first_name, middle_name, last_name, suffix, organization, sector, organization_type, designation, age_bracket, sex, social_classification, province, contact_no, email, control_no, `timestamp`) 
+        $sql = "INSERT INTO `participant_registration` 
+                (`data_privacy_consent`, `title`, `first_name`, `middle_name`, `last_name`, `suffix`, `organization`, `sector`, `organization_type`, `designation`, `age_bracket`, `sex`, `social_classification`, `province`, `contact_no`, `email`, `control_no`, `timestamp`) 
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
 
         $stmt = $conn->prepare($sql);
