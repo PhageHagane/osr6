@@ -348,19 +348,6 @@ if (empty($_SESSION['csrf_token'])) {
           }
         }, 1000); // 1 second delay
       })
-      .catch(error => {
-        console.error('Error:', error);
-        // Add delay for error messages too
-        setTimeout(() => {
-          Swal.fire({
-            icon: 'error',
-            title: 'Network Error',
-            text: 'Unable to connect to the server. Please check your internet connection and try again.',
-            confirmButtonText: 'Try Again',
-            confirmButtonColor: '#dc3545'
-          });
-        }, 1000); // 1 second delay
-      })
       .finally(() => {
         // Reset button state after delay + additional time for message display
         setTimeout(() => {
