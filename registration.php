@@ -292,8 +292,8 @@ if (empty($_SESSION['csrf_token'])) {
   });
 
   // Handle form submission with AJAX
-  document.getElementById('registrationForm').addEventListener('submit', function (e) {
-    e.preventDefault(); // Prevent default form submission
+  document.getElementById('registrationForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
 
     const submitBtn = document.getElementById('submitBtn');
     const formData = new FormData(this);
@@ -302,59 +302,58 @@ if (empty($_SESSION['csrf_token'])) {
     submitBtn.disabled = true;
     submitBtn.innerHTML = 'Registering... <span class="button-arrow">⏳</span>';
 
-    // Show loading alert
     Swal.fire({
       title: 'Processing...',
       text: 'Please wait while we register your information.',
       allowOutsideClick: false,
       allowEscapeKey: false,
       showConfirmButton: false,
-      didOpen: () => {
-        Swal.showLoading();
-      }
+      didOpen: () => Swal.showLoading()
     });
 
-    // Send AJAX request
-    fetch('includes/process_registration.php', {
-      method: 'POST',
-      body: formData
-    })
-      .then(response => response.json())
-      .then(data => {
-        // Add a short delay before showing the result message
-        setTimeout(() => {
-          if (data.success) {
-            // Success message
-            Swal.fire({
-              icon: 'success',
-              title: 'Registration Successful!',
-              html: `
-            <p>Your registration has been completed successfully.</p>
-          `,
-              confirmButtonText: 'OK',
-              confirmButtonColor: '#28a745'
-            }).then(() => {
-              window.location.href = 'index.php';
-            });
-          } else {
-            // Error message
-            Swal.fire({
-              icon: 'error',
-              title: 'Registration Failed',
-              text: data.message || 'An error occurred while processing your registration. Please try again.',
-              confirmButtonText: 'Try Again',
-              confirmButtonColor: '#dc3545'
-            });
-          }
-        }, 1000); // 1 second delay
-      })
-      .finally(() => {
-        // Reset button state after delay + additional time for message display
-        setTimeout(() => {
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = 'Register <span class="button-arrow">→</span>';
-        }, 1200); // Slightly longer delay to ensure message shows first
+    try {
+      // Send request and wait for response
+      const response = await fetch('includes/process_registration.php', {
+        method: 'POST',
+        body: formData
       });
+
+      const data = await response.json();
+
+      // Small delay for better UX
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
+      if (data.success) {
+        await Swal.fire({
+          icon: 'success',
+          title: 'Registration Successful!',
+          html: '<p>Your registration has been completed successfully.</p>',
+          confirmButtonText: 'OK',
+          confirmButtonColor: '#28a745'
+        });
+        window.location.href = 'index.php';
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Registration Failed',
+          text: data.message || 'An error occurred while processing your registration. Please try again.',
+          confirmButtonText: 'Try Again',
+          confirmButtonColor: '#dc3545'
+        });
+      }
+    } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Network Error',
+        text: 'Unable to connect to the server. Please check your connection and try again.',
+        confirmButtonText: 'Try Again',
+        confirmButtonColor: '#dc3545'
+      });
+    } finally {
+      // Reset button state
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = 'Register <span class="button-arrow">→</span>';
+    }
   });
 </script>
 
