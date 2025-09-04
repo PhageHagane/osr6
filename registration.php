@@ -35,17 +35,17 @@ if (empty($_SESSION['csrf_token'])) {
                           class="text-danger">*</span></strong>
                       <br><br>
                       <small class="text-light">
-                        DTI Region VI, co-presented by Mulave Studios, is committed to respecting your privacy and
-                        recognizes the importance of protecting the information collected about you. The personal
-                        information you provide will be processed solely in relation to your attendance to this event.
-                        By
-                        signing this form, you agree that all personal information you submit in relation to this
-                        activity
-                        shall be protected with reasonable and appropriate measures and shall only be retained as long
-                        as
-                        necessary. If you wish to be opted out from the processing of your information and our database,
+                        <strong>2025 OSR6: Western Visayas Digital Creatives Conference</strong>, co-presented by
+                        <strong>DTI VI</strong>, <strong>Innovate Iloilo</strong>, and <strong>Mulave Studios,
+                          Inc.</strong>, is committed to respecting your <strong>privacy</strong> and recognizes the
+                        importance of protecting the information collected about you. The <strong>personal
+                          information</strong> you provide will be processed solely in relation to your
+                        <strong>attendance</strong> to this event. By signing this form, you agree that all personal
+                        information you submit in relation to this activity shall be protected with <strong>reasonable
+                          and appropriate measures</strong> and shall only be retained as long as necessary. If you wish
+                        to be <strong>opted out</strong> from the processing of your information and our database,
                         please do not hesitate to let us know by sending an email to
-                        <a href="mailto:r06@dti.gov.ph">r06@dti.gov.ph</a>.
+                        <a href="mailto:r06@dti.gov.ph"><strong>r06@dti.gov.ph</strong></a>.
                       </small>
                     </label>
                   </div>
