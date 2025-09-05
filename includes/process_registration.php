@@ -54,6 +54,7 @@ try {
         $province = trim($_POST['province']) ?? '';
         $contact_no = trim($_POST['contact_no']);
         $email = trim($_POST['email']);
+        $participation = trim($_POST['participation']);
         // Generate control number in format OSR6-2025-XXX (XXX is a zero-padded incrementing number)
         $year = "2025";
         $stmt_cn = $conn->prepare("SELECT COUNT(*) AS total FROM `participant_registration` WHERE YEAR(`timestamp`) = ?");
@@ -88,8 +89,8 @@ try {
 
         // Prepare SQL statement
         $sql = "INSERT INTO `participant_registration` 
-                (`data_privacy_consent`, `title`, `first_name`, `middle_name`, `last_name`, `suffix`, `organization`, `sector`, `organization_type`, `designation`, `age_bracket`, `sex`, `social_classification`, `province`, `contact_no`, `email`, `control_no`, `timestamp`) 
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
+                (`data_privacy_consent`, `title`, `first_name`, `middle_name`, `last_name`, `suffix`, `organization`, `sector`, `organization_type`, `designation`, `age_bracket`, `sex`, `social_classification`, `province`, `contact_no`, `email`, `control_no`, `timestamp`,`participation`) 
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(),?)";
 
         $stmt = $conn->prepare($sql);
 
@@ -98,7 +99,7 @@ try {
         }
 
         $stmt->bind_param(
-            "issssssssssssssss",
+            "isssssssssssssssss",
             $data_privacy_consent,
             $title,
             $first_name,
@@ -115,7 +116,8 @@ try {
             $province,
             $contact_no,
             $email,
-            $control_no
+            $control_no,
+            $participation
         );
 
         if ($stmt->execute()) {

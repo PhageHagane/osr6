@@ -15,8 +15,8 @@ if (empty($_SESSION['csrf_token'])) {
   <section id="contact" class="contact section">
     <!-- Section Title -->
     <div class="container section-title mt-5">
-      <h2>On-site Registration</h2>
-      <p>On-site Participants (for those attending at the venue)</p>
+      <h2>Zoom Registration</h2>
+      <p>Online Participants (Zoom) (for those joining virtually)</p>
     </div><!-- End Section Title -->
 
     <div class="container">
@@ -27,7 +27,7 @@ if (empty($_SESSION['csrf_token'])) {
               <div class="card-body">
                 <form id="registrationForm" class="contact-form">
                   <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
-                  <input type="hidden" name="participation" value="Physical">
+                  <input type="hidden" name="participation" value="Virtual">
                   <!-- Data Privacy Consent -->
                   <div class="form-field mb-4">
                     <label>
@@ -329,8 +329,8 @@ if (empty($_SESSION['csrf_token'])) {
             Swal.fire({
               icon: 'success',
               title: 'Registration Successful!',
-              html: `
-            <p>Your registration has been completed successfully.</p>
+              html: `<p>Your registration has been completed successfully.</p>
+              <p>The Zoom details for this event will be sent to your email on September 15, 2025.</p>
           `,
               confirmButtonText: 'OK',
               confirmButtonColor: '#28a745'

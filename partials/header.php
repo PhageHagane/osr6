@@ -11,13 +11,24 @@
             ?>
             <nav id="navmenu" class="navmenu">
                 <ul>
-                    <li><a href="#hero" class="active">Home</a></li>
+                    <!-- <li><a href="#hero" class="active">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
                     <li><a href="#team">Team</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#contact">Contact</a></li> -->
+                    <?php
+                    $links = [
+                        ['href' => 'index.php', 'label' => 'Home'],
+                        ['href' => 'registration.php', 'label' => 'On-site Registration'],
+                        ['href' => 'zoom-registration.php', 'label' => 'Zoom Registration'],
+                    ];
 
+                    foreach ($links as $link) {
+                        $active = (basename($_SERVER['PHP_SELF']) == $link['href']) ? ' class="active"' : '';
+                        echo '<li><a href="' . $link['href'] . '"' . $active . '>' . $link['label'] . '</a></li>';
+                    }
+                    ?>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
@@ -27,7 +38,18 @@
             ?>
             <nav id="navmenu" class="navmenu">
                 <ul>
-                    <li><a href="index.php" class="active">Home</a></li>
+                    <?php
+                    $links = [
+                        ['href' => 'index.php', 'label' => 'Home'],
+                        ['href' => 'registration.php', 'label' => 'On-site Registration'],
+                        ['href' => 'zoom-registration.php', 'label' => 'Zoom Registration'],
+                    ];
+
+                    foreach ($links as $link) {
+                        $active = (basename($_SERVER['PHP_SELF']) == $link['href']) ? ' class="active"' : '';
+                        echo '<li><a href="' . $link['href'] . '"' . $active . '>' . $link['label'] . '</a></li>';
+                    }
+                    ?>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>

@@ -47,11 +47,11 @@
               "slidesPerView": "auto",
               "breakpoints": {
                 "320": {
-                  "slidesPerView": 2,
+                  "slidesPerView": 4,
                   "spaceBetween": 40
                 },
                 "480": {
-                  "slidesPerView": 3,
+                  "slidesPerView": 4,
                   "spaceBetween": 60
                 },
                 "640": {

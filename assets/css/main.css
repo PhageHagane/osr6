@@ -981,13 +981,16 @@ section,
   padding: 30px;
   transition: 0.3s;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-}
-
-.card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 30px rgba(232, 65, 144, 0.2);
   border-color: rgba(232, 65, 144, 0.4);
 }
+
+/* .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(232, 65, 144, 0.2);
+  border-color: rgba(232, 65, 144, 0.4);
+} */
 
 /*--------------------------------------------------------------
 # Hero Section
@@ -1190,7 +1193,7 @@ section,
   max-width: 85%;
   height: auto;
   animation: floating 3s ease-in-out infinite;
-  filter: drop-shadow(0 20px 40px color-mix(in srgb, var(--default-color), transparent 85%));
+  filter: drop-shadow(0 10px 20px color-mix(in srgb, var(--default-color), transparent 75%));
 }
 
 @media (max-width: 768px) {
