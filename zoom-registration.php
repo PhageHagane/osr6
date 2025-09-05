@@ -335,7 +335,7 @@ if (empty($_SESSION['csrf_token'])) {
               confirmButtonText: 'OK',
               confirmButtonColor: '#28a745'
             }).then(() => {
-              window.location.href = 'index.php';
+              window.location.href = 'osr6.php';
             });
           } else {
             // Error message
