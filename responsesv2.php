@@ -278,7 +278,7 @@ try {
                                                 <td>
                                                     <?php
                                                     $date = new DateTime($participant['timestamp']);
-                                                    echo $date->format('M j, Y');
+                                                    echo $date->format('M d, Y');
                                                     ?>
                                                     <br>
                                                     <small class="text-muted"><?php echo $date->format('g:i A'); ?></small>
@@ -394,7 +394,7 @@ try {
                                                 <td>
                                                     <?php
                                                     $date = new DateTime($participant['timestamp']);
-                                                    echo $date->format('M j, Y');
+                                                    echo $date->format('M d, Y');
                                                     ?>
                                                     <br>
                                                     <small class="text-muted"><?php echo $date->format('g:i A'); ?></small>
@@ -509,7 +509,7 @@ try {
                                                 <td>
                                                     <?php
                                                     $date = new DateTime($participant['timestamp']);
-                                                    echo $date->format('M j, Y');
+                                                    echo $date->format('M d, Y');
                                                     ?>
                                                     <br>
                                                     <small class="text-muted"><?php echo $date->format('g:i A'); ?></small>
