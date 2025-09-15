@@ -630,7 +630,7 @@ try {
                         text: '<i class="fas fa-file-csv me-1"></i>CSV',
                         className: 'btn btn-success btn-sm',
                         action: function (e, dt, node, config) {
-                            window.open('export.php?format=csv', '_blank');
+                            window.open('export.php?format=csv&filter=Physical', '_blank');
                         }
                     },
                     // {
@@ -685,7 +685,7 @@ try {
                         text: '<i class="fas fa-file-csv me-1"></i>CSV',
                         className: 'btn btn-success btn-sm',
                         action: function (e, dt, node, config) {
-                            window.open('export.php?format=csv', '_blank');
+                            window.open('export.php?format=csv&filter=Virtual', '_blank');
                         }
                     },
                     // {

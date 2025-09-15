@@ -13,7 +13,33 @@ try {
 $format = $_GET['format'] ?? 'csv';
 
 // SQL query to get clean data for export
-$sql = "SELECT 
+if (isset($_GET['filter'])) {
+    $sql = "SELECT 
+    CONCAT_WS(' ', 
+        NULLIF(title, ''), 
+        first_name, 
+        NULLIF(middle_name, ''), 
+        last_name, 
+        NULLIF(suffix, '')
+    ) as full_name,
+    organization,
+    organization_type,
+    sector,
+    designation,
+    email,
+    contact_no,
+    age_bracket,
+    sex,
+    social_classification,
+    province,
+    participation,
+    timestamp as registration_date,
+    data_privacy_consent
+FROM participant_registration 
+WHERE participation = '".$_GET['filter']."'
+ORDER BY timestamp DESC";
+} else {
+    $sql = "SELECT 
     CONCAT_WS(' ', 
         NULLIF(title, ''), 
         first_name, 
@@ -36,6 +62,7 @@ $sql = "SELECT
     data_privacy_consent
 FROM participant_registration 
 ORDER BY timestamp DESC";
+}
 
 try {
     $stmt = $pdo->query($sql);
