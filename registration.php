@@ -26,9 +26,23 @@ if (empty($_SESSION['csrf_token'])) {
             <div class="card">
               <div class="card-body">
                 <form id="registrationForm" class="contact-form">
+                  <div class="form-field mb-4 text-center p-4 rounded-xl bg-gray-800">
+                  <p class="text-light text-lg font-semibold">
+                    ⛔ This registration form is now closed.
+                  </p>
+                  <p class="text-light text-sm mt-2">
+                    Thank you for your interest in the
+                    <strong>2025 OSR6: Western Visayas Digital Creatives Conference</strong>.
+                    For inquiries, you may contact us at
+                    <a href="mailto:r06@dti.gov.ph" class="text-blue-400 underline"><strong>r06@dti.gov.ph</strong></a>.
+                  </p>
+                </div>
+                </form>
+
+                <!-- <form id="registrationForm" class="contact-form">
                   <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                   <input type="hidden" name="participation" value="Physical">
-                  <!-- Data Privacy Consent -->
+                  
                   <div class="form-field mb-4">
                     <label>
                       <input type="checkbox" name="data_privacy_consent" required>
@@ -51,7 +65,7 @@ if (empty($_SESSION['csrf_token'])) {
                     </label>
                   </div>
 
-                  <!-- Personal Information Section -->
+                  
                   <div class="form-section">
                     <h4 class="section-title" style="text-align: start;">
                       <hr>Personal Information
@@ -136,7 +150,7 @@ if (empty($_SESSION['csrf_token'])) {
                     </div>
                   </div>
 
-                  <!-- Professional Information Section -->
+                  
                   <div class="form-section mt-4">
                     <h4 class="section-title" style="text-align: start;">
                       <hr>Organization Information
@@ -217,7 +231,7 @@ if (empty($_SESSION['csrf_token'])) {
                     </div>
                   </div>
 
-                  <!-- Contact Information Section -->
+                  
                   <div class="form-section mt-4">
                     <h4 class="section-title" style="text-align: start;">
                       <hr>Contact Information
@@ -260,7 +274,7 @@ if (empty($_SESSION['csrf_token'])) {
                       <span class="button-arrow">→</span>
                     </button>
                   </center>
-                </form>
+                </form> -->
               </div>
             </div>
           </div>
